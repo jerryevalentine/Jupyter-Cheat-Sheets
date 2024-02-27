@@ -1,0 +1,21 @@
+import pandas as pd
+
+# Creating the DataFrame
+data = {
+    'Column_A': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Column_B': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+    'Column_C': [10.1, 20.2, 30.3, 40.4, 50.5, 60.6, 70.7, 80.8, 90.9, 100.0]
+}
+
+df = pd.DataFrame(data)
+
+df_sorted = df.sort_values("Column_A")
+df_sorted.head()
+
+df_sorted_1 = df.sort_values("Column_A", ascending=False)
+df_sorted_1.head()
+
+df_sorted_2 = df.sort_values(["Column_A", "Column_B"], ascending=False)df_sorted_2.head(15)
+
+ # The index can be reset to provide index numbers based on the new rankings.
+new_index_df = df_sorted_2.reset_index(drop=True)
